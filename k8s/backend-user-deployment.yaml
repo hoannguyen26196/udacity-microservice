@@ -1,19 +1,22 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: udagram-api-feed
-  name: udagram-api-feed
+    service: backend-user
+  name: backend-user
 spec:
+  selector:
+    matchLabels:
+      service: backend-user
   replicas: 1
   template:
     metadata:
       labels:
-        service: udagram-api-feed
+        service: backend-user
     spec:
       containers:
-      - image: toppikey/udagram-api-feed
-        name: udagram-api-feed 
+      - image: toppikey/udagram-api-user:2.0.0
+        name: backend-user 
         imagePullPolicy: Always  
         resources:
           requests:
