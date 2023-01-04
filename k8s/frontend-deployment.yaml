@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       service: frontend
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -16,7 +16,7 @@ spec:
         api: external        
     spec:
       containers:
-      - image: toppikey/udagram-frontend:1.0.0
+      - image: toppikey/udagram-frontend:2.0.0
         name: frontend
         imagePullPolicy: Always          
         ports:
